@@ -1,5 +1,4 @@
 package com.kh.springdb.controller;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,10 +17,8 @@ public class ProductController {
 
     @GetMapping("productLists")
     public String displayProductList(Model model) {
-    	//model.addAttribute("products","제품 저장할 공간");
-    	model.addAttribute("products",productService.getAllProducts());
+    	//model.addAttribuste("products","제품 저장할 공간");
+    	model.addAttribute("products", productService.getAllProducts());
         return "productLists";
     }
-    
-    
 }
