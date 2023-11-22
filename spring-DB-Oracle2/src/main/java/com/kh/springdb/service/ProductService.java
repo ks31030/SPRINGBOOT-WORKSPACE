@@ -9,7 +9,7 @@ import com.kh.springdb.mapper.ProductMapper;
 import com.kh.springdb.model.Product;
 
 @Service
-public class ProductServie {
+public class ProductService {
 	/*
 		JPA 
 		@Autowired
@@ -22,6 +22,10 @@ public class ProductServie {
 		//return productRepository.findAll();
 		return productMapper.getAllProducts();
 	}
+	
+    public void addProduct(Product product) {
+        productMapper.addProduct(product);
+    }
 	
 }
 
