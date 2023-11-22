@@ -2719,3 +2719,17 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact com.kh.spring
 2023-11-22 16:01:37,994 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
 2023-11-22 16:01:38,001 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
 2023-11-22 16:01:38,005 [Worker-62: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\user1\springBoot-workspace\spring-DB-Oracle\src\test\resources
+2023-11-22 16:23:28,923 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-11-22 16:23:28,928 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 3 resources from src\main\resources to target\classes
+2023-11-22 16:23:28,930 [Worker-65: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\user1\springBoot-workspace\spring-DB-Oracle\src\test\resources
+2023-11-22 16:33:42,223 [Start Help Server] INFO  org.eclipse.jetty.server.Server - jetty-10.0.15; built: 2023-04-11T17:25:14.480Z; git: 68017dbd00236bb7e187330d7585a059610f661d; jvm 17.0.9+9
+2023-11-22 16:33:42,241 [Start Help Server] INFO  o.e.j.s.s.DefaultSessionIdManager - Session workerName=node0
+2023-11-22 16:33:42,264 [Start Help Server] INFO  o.e.j.server.handler.ContextHandler - Started o.e.j.s.ServletContextHandler@22810518{/help,null,AVAILABLE}
+2023-11-22 16:33:42,280 [Start Help Server] INFO  o.e.jetty.server.AbstractConnector - Started ServerConnector@671081cb{HTTP/1.1, (http/1.1)}{127.0.0.1:62918}
+2023-11-22 16:33:42,292 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started Server@6b987f9{STARTING}[10.0.15,sto=0] @6433698ms
+2023-11-22 16:33:46,821 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-11-22 16:33:46,826 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src\main\resources to target\classes
+2023-11-22 16:33:46,828 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\user1\springBoot-workspace\spring-projects\src\test\resources
+2023-11-22 17:09:44,307 [Stop Help Server] INFO  org.eclipse.jetty.server.Server - Stopped Server@6b987f9{STOPPING}[10.0.15,sto=0]
+2023-11-22 17:09:44,312 [Stop Help Server] INFO  o.e.jetty.server.AbstractConnector - Stopped ServerConnector@671081cb{HTTP/1.1, (http/1.1)}{127.0.0.1:0}
+2023-11-22 17:09:44,317 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@22810518{/help,null,STOPPED}
