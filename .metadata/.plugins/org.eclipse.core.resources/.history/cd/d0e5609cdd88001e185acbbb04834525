@@ -1,0 +1,5 @@
+package com.kh.springdb.mapper;
+import java.util.List;
+public interface ProductMapper {
+	List<Product> getAllProducts();
+}

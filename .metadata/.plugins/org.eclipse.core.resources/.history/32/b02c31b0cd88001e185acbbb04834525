@@ -1,0 +1,2 @@
+## DB 연결 설정을 해준 후 
+spring.datasource.url=jdbc:oracle:thin:@//localhost:1521/XE
