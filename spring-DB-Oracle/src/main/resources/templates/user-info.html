@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>아이디 한개 갖고 오기</title>
+</head>
+<body>
+	<div th:if="${user}">
+		<p th:text="${user.user_id}"></p>
+		<p th:text="${user.username}"></p>
+		<p th:text="${user.email}"></p>
+		<p th:text="${user.reg_date}"></p>
+	</div>
+</body>
+</html>
