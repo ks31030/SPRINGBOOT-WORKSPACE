@@ -11,4 +11,12 @@
 	<select id="getUserById" parameterType = "int" resultType="com.kh.springdb.model.User">
 		SELECT * FROM memberinfo WHERE mno = #{id} 
 	</select>
+	
+	<update id="" parameterType="com.kh.sptingdb.model.User">
+	UPDATE MEMBERINFO
+	SET
+	MNAME =#{mname},
+	MEMAIL =#{memail},
+	WHERE MNO =#{mno}
+	</update>
 </mapper>
