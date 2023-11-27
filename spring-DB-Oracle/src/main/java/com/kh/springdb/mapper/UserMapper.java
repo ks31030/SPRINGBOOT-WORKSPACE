@@ -18,6 +18,7 @@ public interface UserMapper {
 	 void saveUser(User user);
 	 
 	 User loginUser(String memail);
+	 
 	//유저 정보 수정 메서드
 	void updateUser(User user);
 	

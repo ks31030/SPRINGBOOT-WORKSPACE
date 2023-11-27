@@ -107,18 +107,18 @@ public class UserController {
     	
     }
     
-    @RequestMapping(value="/user-delete/{id}", method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE})
-    public String deleteUser(@PathVariable int id) {
+
+    @DeleteMapping("/user-delete/{id}")
+    public String deleteMappingUser(@PathVariable int id) {
     	userService.deleteUser(id);
     	return "redirect:/user-info";
     	
     }
-    
     */
 
 
-    @DeleteMapping("/user-delete/{id}")
-    public String deleteMappingUser(@PathVariable int id) {
+    @RequestMapping(value="/user-delete/{id}", method = {RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,RequestMethod.DELETE})
+    public String deleteUser(@PathVariable int id) {
     	userService.deleteUser(id);
     	return "redirect:/user-info";
     	

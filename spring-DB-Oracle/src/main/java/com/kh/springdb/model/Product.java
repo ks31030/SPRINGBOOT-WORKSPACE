@@ -38,5 +38,5 @@ public class Product {
 	public void setStock_quantity(int stock_quantity) {
 		this.stock_quantity = stock_quantity;
 	}
-	
+
 }
