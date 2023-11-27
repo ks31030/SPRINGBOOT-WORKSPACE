@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Sign Up</title>
+<link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}" />
 </head>
 <body>
 	<form th:action="@{/api/user/register}" method="post" th:object="${user}">

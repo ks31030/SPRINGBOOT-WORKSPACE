@@ -74,6 +74,12 @@ public class BoardController {
 		boardService.deleteBoard(boardId);
 		return "redirect:/boards";
 	}
+	
+	@GetMapping("/delete-all-boards")
+	public String deleteAllBoards() {
+		boardService.deleteAllBoards();
+		return "redirect:/boards";
+	}
 }
 
 

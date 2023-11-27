@@ -32,7 +32,10 @@
     <delete id="deleteBoard" parameterType="int">
         DELETE FROM Board WHERE board_id = #{boardId}
     </delete>
-
+    
+    <delete id="deleteAllBoards">
+    	DELETE FROM Board
+    </delete>
 </mapper>
 <!-- 
 	CREATE TABLE Board (
