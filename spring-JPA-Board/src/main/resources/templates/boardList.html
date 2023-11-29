@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="EUC-KR">
+		<title>Board List</title>
+	</head>
+	<body>
+		<h2>Board List</h2>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Title</th>
+					<th>Author</th>
+					<th>Click</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="board : ${boards}">
+					<td th:text="${board.boardId}"></td>
+					<td th:text="${board.title}"></td>
+					<td th:text="${board.author}"></td>
+					<td><a th:href="@{/boards/details/{board${board.boardId}">View Details</td>  ???????????????
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/boards/new}">Add New Board</a>
+	</body>
+</html>
