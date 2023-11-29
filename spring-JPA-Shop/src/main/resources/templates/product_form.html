@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>제품 추가하기</title>
+    <title>Product Form</title>
 </head>
 <body>
     <h2>Product Form</h2>
     <form th:action="@{/products/save}" th:object="${product}" method="post">
         <input type="hidden" th:field="*{product_id}" />
-
         <label>ID: </label><span th:text="${product_id}"></span><br/>
         <label>Name: </label><input type="text" th:field="*{product_name}" /><br/>
         <label>Category: </label><input type="text" th:field="*{category}" /><br/>
@@ -15,6 +14,7 @@
         <label>Stock Quantity: </label><input type="text" th:field="*{stock_quantity}" /><br/>
         <button type="submit">Save Product</button>
     </form>
+    <a th:href="@{/products}">돌아가기</a>
 </body>
 </html>
 <!-- th:text

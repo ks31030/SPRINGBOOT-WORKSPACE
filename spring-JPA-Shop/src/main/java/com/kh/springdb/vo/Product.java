@@ -11,7 +11,9 @@ import lombok.Setter;
 @Table(name="Products")
 public class Product {
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="product_id_sequence")
+	@SequenceGenerator(name="product_id_sequence",  sequenceName="product_id_sequence",
+	allocationSize=1)
 	private Long product_id;
 	private String category;
 	private String price;

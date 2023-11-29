@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<meta charset="EUC-KR">
+		<meta charset="UTF-8">
 		<title>Board Form</title>
 	</head>
 	<body>
@@ -16,6 +16,6 @@
 			<input type="text" th:field="*{author}" /> <br/>
 			<button type="submit">Save Board</button>
 		</form>
-		<a href="@{/boards}">돌아가기</a>
+		<a th:href="@{/boards}">돌아가기</a>
 	</body>
 </html>

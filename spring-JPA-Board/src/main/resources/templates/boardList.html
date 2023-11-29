@@ -3,6 +3,18 @@
 	<head>
 		<meta charset="EUC-KR">
 		<title>Board List</title>
+		<script  th:inline="javascript">
+			function checkDelete() {
+				var checkdelete = confirm("게시물을 모두 삭제하시겠습니까?");
+				if (checkdelete) {
+					window.location.href='/boards/delete/all';
+					//return true;
+				} else {
+					alert("게시물 삭제를 취소했습니다.");
+					//return false;
+				}
+			}
+		</script>
 	</head>
 	<body>
 		<h2>Board List</h2>
@@ -20,10 +32,16 @@
 					<td th:text="${board.boardId}"></td>
 					<td th:text="${board.title}"></td>
 					<td th:text="${board.author}"></td>
-					<td><a th:href="@{/boards/details/{board${board.boardId}">View Details</td>  ???????????????
+					<td>
+						<a th:href="@{/boards/details/{boardId}(boardId=${board.boardId})}">View Details</a>
+						<a th:href="@{/boards/update/{boardId}(boardId=${board.boardId})}">수정</a>
+					</td>
+					
 				</tr>
 			</tbody>
+			
 		</table>
 		<a th:href="@{/boards/new}">Add New Board</a>
+		<a href="#" th:onclick="checkDelete()">모든 게시물 삭제</a>
 	</body>
 </html>

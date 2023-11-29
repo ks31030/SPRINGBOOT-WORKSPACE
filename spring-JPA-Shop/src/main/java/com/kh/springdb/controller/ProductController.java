@@ -1,5 +1,6 @@
 package com.kh.springdb.controller;
 
+import com.kh.springdb.vo.Product;
 import com.kh.springdb.service.ProductService;
 import com.kh.springdb.vo.Product;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,13 @@ public class ProductController {
         productService.saveProduct(product);
         return "redirect:/products";
     }
+    
+    @GetMapping("/update/{id}")
+	public String getUpdateProduct(@PathVariable Long id, Model model) {
+		Optional<Product> product = productService.getProductById(id);
+		product.ifPresent(value -> model.addAttribute("product", value));
+		return "product_form";
+	}
 
 
     @GetMapping("/delete/{id}")
