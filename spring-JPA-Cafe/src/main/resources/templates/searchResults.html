@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>검색 결과</title>
+		<link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}" />
+	</head>
+	<body>
+		<h2>검색 결과</h2>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>NAME</th>
+					<th>LOCATION</th>
+					<th>OPENING HOURS</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="c:${cafes}">
+					<td th:text="${c.cafeId}"></td>
+					<td th:text="${c.name}"></td>
+					<td th:text="${c.location}"></td>
+					<td th:text="${c.openingHours}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>

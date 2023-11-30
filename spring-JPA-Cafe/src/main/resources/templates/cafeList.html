@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Cafe List</title>
+		<link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}" />
+	</head>
+	<body>
+		<h2>Cafe List</h2>
+		<a th:href="@{/cafes/new}">Add Cafe</a>
+		<form th:action="@{/cafes}" method="get">
+			<label>Search Cafe : </label>
+			<input type="text" id="search" name="name"/>
+			<center><button type="submit">Search</button></center>
+		</form>
+		<table border="1">
+			<tr th:each="cafe : ${cafes}"></tr>
+		</table>
+		<table border="1">
+			<tr>
+				<th><center>ID</center></th>
+				<th><center>STORE NAME</center></th>
+				<th><center>LOCATION</center></th>
+				<th><center>OPERATING TIME</center></th>
+				<th><center>DETAIL/SHUTDOWN</center></th>
+			</tr>
+			<tr th:each="cafe : ${cafes}">
+				<td th:text="${cafe.cafeId}">></td>
+				<td th:text="${cafe.name}"></td>
+				<td th:text="${cafe.location}"></td>
+				<td th:text="${cafe.openingHours}"></td>
+				<td>
+					<a th:href="@{/cafes/details/{cafeId}(cafeId=${cafe.cafeId})}">상세보기</a>
+					<a th:href="@{/cafes/delete/{cafeId}(cafeId=${cafe.cafeId})}">폐업</a>
+					<!--<a th:href="@{'/cafes/delete/'+ cafe.cafeId}">폐업</a>-->
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
