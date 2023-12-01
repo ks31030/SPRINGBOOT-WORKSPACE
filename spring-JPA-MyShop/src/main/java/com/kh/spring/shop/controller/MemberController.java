@@ -34,7 +34,7 @@ public class MemberController {
 	@PostMapping("/save")
 	public String saveMember(@ModelAttribute Member member) {
 		memberService.saveMember(member);
-		return "redirect:/members";
+		return "redirect:../";
 	}
 	
 	//로그인, 로그인 실패 @GetMapping @GetMapping

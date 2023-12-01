@@ -8,15 +8,19 @@
 	<body>
 		<h2>Cafe Details</h2>
 		<div>
-			<p>ID</p>
-			<p th:text="${cafe.cafeId}"></p>
-			<p>NAME</p>
-			<p th:text="${cafe.name}"></p>
-			<p>LOCATION</p>
-			<p th:text="${cafe.location}"></p>
-			<p>OpeningHours</p>
-			<p th:text="${cafe.openingHours}"></p>
-			<a th:href="@{/cafes}">RETURN TO LIST</a>
+			<table>
+				<tr>
+					<th><center>ID</center></th>
+					<td th:text="${cafe.cafeId}"></td>
+					<th><center>NAME</center></th>
+					<td th:text="${cafe.name}"></td>
+					<th><center>LOCATION</center></th>
+					<td th:text="${cafe.location}"></td>
+					<th><center>OpeningHours</center></th>
+					<td th:text="${cafe.openingHours}"></td>
+					<a th:href="@{/cafes}">RETURN TO LIST</a>
+				</tr>
+			</table>
 		</div>
 		<div th:unless="${cafe!=null}">
 			<p>카페를 찾을 수 없습니다.</p>
