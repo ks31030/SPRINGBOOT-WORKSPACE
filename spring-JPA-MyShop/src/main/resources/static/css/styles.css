@@ -1,0 +1,76 @@
+@charset "UTF-8";
+/* styles.css */
+
+h2 {
+    color: navy;
+    text-align: center;
+    font-family: Georgia;
+}
+
+body {
+	background-color:white;	
+	
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: navy;
+    color: white;
+}
+
+a, button {
+    text-decoration: none;
+    padding: 5px 10px;
+    margin-right: 5px;
+    border: 1px solid #333;
+    color: #333;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flow;
+    text-align: center;
+    font-family: Georgia;
+
+}
+
+a:hover, button:hover {
+    background-color: navy;
+    color: #fff;
+}
+form {
+	text-align: center;
+    width: 50%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgb(0, 0, 0, 0.0);
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: navy;
+    font-family: Georgia;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+}

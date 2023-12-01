@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>KS Shopping Mall Login</title>
+<link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}" />
+</head>
+<body>
+	<div>
+		<form>
+			<div>
+				<label>이메일</label>
+				<input type="email" name="email" placeholder="이메일을 입력하세요."/>
+			</div>
+			<div>
+				<label>비밀번호</label>
+				<input type="password" name="password" placeholder="비밀번호를 입력하세요."/>
+			</div>
+			<!--만약 로그인 정보가 일치않지 않는다면 p태그가 보일 수 있도록 설정.-->
+			<p th:if="${loginErrorMsg}" th:text="${logtnErrorMsg}"></p>
+			<button>로그인</button>
+			<button>회원가입</button>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>KS 쇼핑몰 회원가입</title>
+		<link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}" />
+	</head>
+	<body>
+		<form th:action="@{members/new}" th:object="${member}" method="post">
+			<label>이름 :</label>
+			<input type="text" th:field="*{name}" required/><br/>
+			<label>이메일 :</label>
+			<input type="email" th:field="*{email}" required/><br/>
+			<label>비밀번호 :</label>
+			<input type="password" th:field="*{password}" required/><br/>
+			<label>주소 :</label>
+			<input type="text" th:field="*{address}" required/><br/>
+			<button type="submit">회원가입</button>
+		</form>
+	</body>
+</html>

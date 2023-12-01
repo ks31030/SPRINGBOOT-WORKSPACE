@@ -39,4 +39,12 @@ public class CafeService {
 		//return cafeRepository.findCafe(keyword);
 		return cafeRepository.findByNameContaining(keyword);
 	}
+	//repository에 작성한 지역count를 가져 와서 이용할 수 있는 메서드 추가.
+	public int countCafesByLocation(String location) {
+		return cafeRepository.countByLocation(location);
+	}
+	//카페 존재여부 확인
+	public boolean existsCafeByName(String name) {
+		return cafeRepository.existsByName(name);
+	}
 }

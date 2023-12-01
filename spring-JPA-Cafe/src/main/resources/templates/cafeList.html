@@ -30,8 +30,9 @@
 				<td th:text="${cafe.location}"></td>
 				<td th:text="${cafe.openingHours}"></td>
 				<td>
-					<a th:href="@{/cafes/details/{cafeId}(cafeId=${cafe.cafeId})}">상세보기</a>
-					<a th:href="@{/cafes/delete/{cafeId}(cafeId=${cafe.cafeId})}">폐업</a>
+					<a th:href="@{/cafes/count/{location}(location=${cafe.location})}">Check a count of cafes in this location</a>
+					<a th:href="@{/cafes/details/{cafeId}(cafeId=${cafe.cafeId})}">Detail</a>
+					<a th:href="@{/cafes/delete/{cafeId}(cafeId=${cafe.cafeId})}">Shutdown</a>
 					<!--<a th:href="@{'/cafes/delete/'+ cafe.cafeId}">폐업</a>-->
 				</td>
 			</tr>

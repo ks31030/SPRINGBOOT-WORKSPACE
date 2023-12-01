@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.kh.cafe.vo.Cafe;
 import com.kh.cafe.service.CafeService;
 import com.kh.cafe.vo.Cafe;
 
@@ -79,6 +78,26 @@ public class CafeController {
 		cafeService.deleteCafeById(cafeId);
 		return "redirect:/cafes";
 	}
+	//GetMapping을 활용해서 count 해준 location를 갖고 오기
+	@GetMapping("/count/{location}")
+	public String countCafesByLocation(@PathVariable String location, Model model) {
+		int cafeCount = cafeService.countCafesByLocation(location);
+		//1. 지역값을 저장할 모델
+		//2. 지역 갯수를 저장해줄 모델.
+		model.addAttribute("location", location);
+		model.addAttribute("cafeCount", cafeCount);
+		return "cafeCount";
+	}
+	//카페가 존재하는지 확인 여부
+	@GetMapping("/exists/{name}")
+	public String existsCafeByName(@PathVariable String name, Model model) {
+		boolean cafeExists = cafeService.existsCafeByName(name);
+		model.addAttribute("cafeExists", cafeExists);
+		return "cafeExists";
+	}
+	
+	
+	
 //	@GetMapping("/search")
 //	public String searchCafes(@RequestParam String keyword, Model model) {
 //		// 특정 키워드를 포함하는 카페를 검색

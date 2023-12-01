@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Product List</title>
+		<link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}" />
+	</head>
+	<body>
+		<h2>Product List</h2>
+		<table border="1">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>CATEGORY</th>
+					<th>NAME</th>
+					<th>PRICE</th>
+					<th>STOCK QUANTITY</th>
+					<th>DETAIL</th>
+					<th>UPDATE</th>
+					<th>CART</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="product : ${products}">
+					<td th:text="${product.id}"></td>
+					<td th:text="${product.category}"></td>
+					<td th:text="${product.name}"></td>
+					<td th:text="${product.price}"></td>
+					<td th:text="${product.stock_quantity}"></td>
+					<td>
+						<a th:href="@{/products/details/{id}(id=${product.id})}">상세보기</a>
+						<a th:href="@{/products/update/{id}(id=${product.id})}">수정하기</a>
+						<a th:href="@{/products/delete/{id}(id=${product.id})}">삭제하기</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/products/new}">추가하기</a>
+		<a href="#" th:onclick="checkDelete()">모든 게시물 삭제</a>
+	</body>
+</html>

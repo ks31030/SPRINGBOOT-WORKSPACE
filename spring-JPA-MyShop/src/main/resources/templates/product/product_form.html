@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Board Form</title>
+		<link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}" />
+	</head>
+	<body>
+		<h2>Product Form</h2>
+		<form th:action="@{/products/save}" th:object="${product}" method="post">
+			<input type="hidden" th:field="*{id}"/>
+			<label>NAME</label>
+			<input type="text" th:field="*{name}" /> <br/>
+			<label>CATEGORY</label>
+			<input type="text" th:field="*{category}" /> <br/>
+			<label>PRICE</label>
+			<input type="text" th:field="*{price}" /> <br/>
+			<label>STOCK QUANTITY</label>
+			<input type="text" th:field="*{stock_quantity}" /> <br/>
+			<label>DESCRIPTION</label>
+			<input type="text" th:field="*{description}" /> <br/>
+			<button type="submit">Save Product</button>
+		</form>
+		<a th:href="@{/products}">돌아가기</a>
+	</body>
+</html>

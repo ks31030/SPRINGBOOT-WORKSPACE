@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>장바구니</title>
+	</head>
+	<body>
+		<h1>장바구니</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>상품명</th>
+					<th>가격</th>
+					<th>수량</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="item : ${cart.items}">
+					<td th:text="${item.product.product_name}"></td>
+					<td th:text="${item.product.price}"></td>
+					<td>
+						<!--상품 갯수를 바꾸고 싶을 경우 수정하는 폼을 작성해준다.-->
+					</td>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
