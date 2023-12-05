@@ -14,6 +14,9 @@ public class OrderItem {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="orderItem_seq")
 	@SequenceGenerator(name="orderItem_seq", sequenceName = "orderItem_seq", allocationSize=1)
 	private int id;
+	
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="order_id")
 	private Order order;
 	
 	//구매자
@@ -44,12 +47,13 @@ public class OrderItem {
 		orderItem.setItemId(itemId);
 		orderItem.setUser(user);
 		orderItem.setOrder(order);
+		
 		orderItem.setItemName(item.getName());
 		orderItem.setItemPrice(item.getPrice()*count);
 		//어떤 제품을 몇개 살 것이고,
 		//최종적으로 몇개를 구매할 것인지에 대한 카운트가 필요함.
 		orderItem.setItemCount(count);
-		orderItem.setItemTotalPrice(itemId);
+		orderItem.setItemTotalPrice(item.getPrice()*count);
 		orderItem.setSaleItem(saleItem);
 		return orderItem;
 		

@@ -20,7 +20,8 @@ public class User {
 	//Admin ad = new Admin();
 	
 	@Id
-	@GeneratedValue()
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="user_seq")
+	@SequenceGenerator(name = "user_seq", sequenceName="user_seq",allocationSize=1)
 	private int id;
 	
 	@Column(unique = true)//닉네임 중복되지 않도록 설정.
@@ -38,17 +39,21 @@ public class User {
 	private Cart cart;
 	
 	//구매자가 주문한 리스트
-	private List<Order> order = new ArrayList<>();
+	@OneToMany(mappedBy="user")
+	private List<Order> userOrder = new ArrayList<>();
 	
 	//구매자가 주문한 상품목록
-	private List<Order> orderItem = new ArrayList<>();
+	@OneToMany(mappedBy="user")
+	private List<OrderItem> userOrderItem = new ArrayList<>();
 	
 	/*판매자를 위한 필드*/
 	//판매자 상품리스트
-	private List<SaleItem> 판매상품변수명 = new ArrayList<>();
+	@OneToMany(mappedBy="seller")
+	private List<SaleItem> sellerSaleItem = new ArrayList<>();
 	
 	//판매 리스트
-	private List<Sale> 판매에대한변수명;
+	@OneToMany(mappedBy="seller")
+	private List<Sale> sellerSale;
 	
 	/*구매자와 판매자를 위한 필드*/
 	//주문날짜와 판매날짜

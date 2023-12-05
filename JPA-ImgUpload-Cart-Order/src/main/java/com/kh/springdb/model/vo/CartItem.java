@@ -1,7 +1,5 @@
 package com.kh.springdb.model.vo;
 
-import java.util.*;
-import org.apache.catalina.User;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,12 +12,16 @@ import lombok.*;
 public class CartItem {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="cartItem_seq")
+	@SequenceGenerator(name = "cartItem_seq", sequenceName="cartItem_seq",allocationSize=1)
 	private int id;
+	
 	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="cart_id")
 	private Cart cart;
 	@JoinColumn(name="item_id")
 	private Item item;
+	
 	//카트에 담긴 상품 갯수
 	private int cartCount;
 }

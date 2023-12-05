@@ -1,6 +1,7 @@
 package com.kh.springdb.service;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +12,13 @@ import com.kh.springdb.repository.ItemRepository;
 public class ItemService {
 	
 	private ItemRepository itemRepository;
+	
 	@Autowired
 	public ItemService() {
 		this.itemRepository = itemRepository;
 	}
 	//상품을 추가하고 삭제하고 수정하는 기능.
-	public void addItem(Item item, MultipartFile photoFile) {
+	public void addItem(Item item, MultipartFile photoFile) throws IllegalStateException, IOException{
 		//상품명 저장될 파일명 경로 생성.
 		//이미지 파일 정보에 대해서 추출.
 		String originPhotoName = photoFile.getOriginalFilename();//업로드된 이미지 파일의 원본 파일명을 가져옴.
@@ -30,8 +32,6 @@ public class ItemService {
 		String saveFileName = "KHSHOP_" + originPhotoName;
 		//saveFileName으로 만약에 판매자가 사진1을 올리면
 		//내 폴더 안에는 KHSHOP_사진1로 저장아 됨.
-		
-		photoName = saveFileName;
 		
 		//빈값에다가 한번 더 재정의로 넣어줌.
 		photoName = saveFileName;
@@ -53,6 +53,7 @@ public class ItemService {
 		item.setPhotoName(photoName);
 		item.setPhotoPath("/img/" + photoName);
 		
+		//DB에 저장할 수 있도록 save
 		itemRepository.save(item);
 	}
 	//상품 읽기 find를 사용해서 개별 읽기
