@@ -11,7 +11,7 @@ import lombok.*;
 @Entity
 public class OrderItem {
 	@Id
-	@GenerateValue(strategy = GenerationType.SEQUENCE, generator="orderItem_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="orderItem_seq")
 	@SequenceGenerator(name="orderItem_seq", sequenceName = "orderItem_seq", allocationSize=1)
 	private int id;
 	private Order order;
@@ -30,8 +30,14 @@ public class OrderItem {
 	private int itemCount;
 	//총액
 	private int itemTotalPrice;
+	//주문 상품에 매핑되는 판매상품
+	@OneToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="saleItem_id")
+	private SaleItem saleItem;
 	
 	//주문 취소 여부 1 : 주문취소 0 : 주문완료
+	private int isCancel;
+	
 	//장바구니 상품 하나씩 개별 주문
 	public static OrderItem createOrderItem(int itemId, User user, Item item, int count, Order order, SaleItem saleItem) {
 		OrderItem orderItem = new OrderItem();

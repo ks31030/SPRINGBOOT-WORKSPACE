@@ -20,7 +20,7 @@ public class User {
 	//Admin ad = new Admin();
 	
 	@Id
-	@GenerateValue()
+	@GeneratedValue()
 	private int id;
 	
 	@Column(unique = true)//닉네임 중복되지 않도록 설정.
@@ -45,10 +45,10 @@ public class User {
 	
 	/*판매자를 위한 필드*/
 	//판매자 상품리스트
-	private List<판매상품아이템> 판매상품변수명 = new ArrayList<>();
+	private List<SaleItem> 판매상품변수명 = new ArrayList<>();
 	
 	//판매 리스트
-	private List<판매> 판매에대한변수명;
+	private List<Sale> 판매에대한변수명;
 	
 	/*구매자와 판매자를 위한 필드*/
 	//주문날짜와 판매날짜

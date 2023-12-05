@@ -17,7 +17,7 @@ import lombok.*;
 @Entity
 public class Order {
 	@Id
-	@GenerateValue(strategy = GenerationType.SEQUENCE, generator="order_seq")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="order_seq")
 	@SequenceGenerator(name="order_seq", sequenceName="order_seq", allocationSize=1)
 	private int id;
 	
