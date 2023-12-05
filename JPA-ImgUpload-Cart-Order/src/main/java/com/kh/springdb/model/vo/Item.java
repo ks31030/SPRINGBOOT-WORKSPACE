@@ -29,9 +29,14 @@ public class Item {
 	//판매자 아이디(admin)
 	@ManyToOne //판매자 한명이 여러개의 상품을 팔 수 있기 때문에 판매자 1 : 상품 N
 	@JoinColumn(name="admin_id")
-	private Admin admin;
+	//private Admin admin;
 	//상품사진
 	private String photo;
 	
-	private List<카트에담긴상품들> cart_item = new ArrayList<>();
+	//상품명
+	private String photoName;
+	//상품 이미지 위치
+	private String photoPath;
+	
+	private List<CartItem> cart_item = new ArrayList<>();
 }
