@@ -7,17 +7,17 @@ import lombok.*;
 @Setter
 @Entity
 public class SecurityUser {
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="sec_user_seq")
-	@SequenceGenerator(name="seq_user_seq", sequenceName="sec_user_seq", allocationSize=1)
-	private Long id;
-	
-	@Column(unique=true)
-	private String username;
-	
-	private String password;
-	
-	@Column(unique=true)
-	private String email;
-	
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="siteUser_seq")
+	@SequenceGenerator(name = "siteUser_seq", sequenceName="siteUser_seq",allocationSize=1)
+    private Long id;
+
+    @Column(unique = true)
+    private String username;
+
+    private String password;
+
+    @Column(unique = true)
+    private String email;
 }
