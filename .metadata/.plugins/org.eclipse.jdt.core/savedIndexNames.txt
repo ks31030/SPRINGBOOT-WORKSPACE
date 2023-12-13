@@ -19,7 +19,6 @@ INDEX VERSION 1.134+C:\Users\user1\springBoot-workspace\.metadata\.plugins\org.e
 2361732306.index
 2037195511.index
 174155882.index
-68672378.index
 2347480983.index
 1567671870.index
 576904980.index
@@ -71,7 +70,6 @@ INDEX VERSION 1.134+C:\Users\user1\springBoot-workspace\.metadata\.plugins\org.e
 35693191.index
 834297723.index
 509863001.index
-1114370213.index
 1504711620.index
 4137684826.index
 3622655518.index
@@ -92,7 +90,6 @@ INDEX VERSION 1.134+C:\Users\user1\springBoot-workspace\.metadata\.plugins\org.e
 3158184881.index
 3556487694.index
 2156589265.index
-3208438474.index
 3767801058.index
 199694482.index
 3604423200.index
@@ -108,7 +105,6 @@ INDEX VERSION 1.134+C:\Users\user1\springBoot-workspace\.metadata\.plugins\org.e
 501864438.index
 2117814933.index
 2320024590.index
-2357346792.index
 3788994627.index
 3029196160.index
 2050988474.index
