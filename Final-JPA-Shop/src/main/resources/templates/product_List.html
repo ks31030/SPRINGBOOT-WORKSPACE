@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 	<head>
 		<meta charset="UTF-8">
 		<title>productList</title>
@@ -11,7 +11,7 @@
         }
 
         .product-item {
-            width: 30%; /* Set the width to approximately 30% to display three items in a row */
+            width: 30%; 
             margin: 1%;
             box-sizing: border-box;
             text-align: center;
@@ -22,9 +22,15 @@
             height: auto;
         }
     </style>
+    <script>
+    function likeProduct(productId) {
+        alert('좋아요를 누르셨습니다. ID: ' + productId);
+    }
+    </script>
+
 	</head>
 	<body>
-		<h1>productList</h1>
+		<h1>상품 목록</h1>
 			    <a sec:authorize="isAnonymous()" th:href="@{/user/signup}">회원가입</a>
 		<a sec:authorize="isAnonymous()" th:href="@{/user/login}">로그인</a>
 	    <a sec:authorize="isAuthenticated()" th:href="@{/user/logout}">로그아웃</a>
@@ -42,22 +48,18 @@
 					    <div th:unless="${product.imgName != null and product.imgPath != null}">
 					        <img class="product-image" th:src="@{'/img/notImg.jpg'}" >
 					    </div>
-			
+						<br>
 						<label>제품명 : </label>
 						<span th:text="${product.name}"></span>
-						
+						<br>
 						<label>제품 가격 : </label>
 						<span th:text="${product.price}"></span>
-						
+						<br>
 						<button th:if="${#authorization.expression('isAuthenticated()')}"
-							th:onclick="'likeProduct('+${product.id}+')"
-							type="button">좋아요</button>
-						<span th:text="${product.likes}">likes</span>
-						<script>
-							function likeProduct(productId){
-								alert('좋아요를 누르셨습니다.' + productId);
-							}
-						</script>	
+        				th:onclick="'likeProduct(' + ${product.id} + ')'"
+        				type="button">좋아요</button>
+						<span th:text="${product.likes}"></span> Likes
+						<br>
 						<a th:href="@{'/product/detail/' + ${product.id}}">상세보기</a>
 						
 						
@@ -98,9 +100,8 @@
 				                </a>
 				            </li>
 					    </ul>
-				</div>
-			
-			
+					    <a th:href="@{/}">메인으로 돌아가기</a>
+				</div>	
 	</body>
 </html>
 			

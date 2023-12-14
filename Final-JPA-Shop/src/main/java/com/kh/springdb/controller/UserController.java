@@ -55,4 +55,9 @@ public class UserController {
 	public String login() {
 		return "login_form";
 	}
+	
+	@PostMapping("/login")
+	public String loginDone() {
+		return "redirect:/";
+	}
 }

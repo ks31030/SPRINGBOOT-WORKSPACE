@@ -15,11 +15,12 @@ import lombok.*;
 @Setter
 @Getter
 @Entity
+@Table(name="products")
 public class Product {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator="pros_seq")
-	@SequenceGenerator(name = "pros_seq", sequenceName="pros_seq", allocationSize=1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator="pross_seq")
+	@SequenceGenerator(name = "pross_seq", sequenceName="pross_seq", allocationSize=1)
 	//private int productId;
 	private int id;
 	
@@ -40,7 +41,7 @@ public class Product {
 	//@OneToMany(mappedBy="products", cascade=CascadeType.ALL)
 	//댓글 작성을 위한 Comment
 	@OneToMany(mappedBy="product", cascade=CascadeType.ALL)
-	private List<Comment> comments;
+	private List<Comments> comments;
 	
 	//상품 이미지를 위한 필드 설정
 	
@@ -54,14 +55,11 @@ public class Product {
     public void createDate() {
         this.createDate = LocalDate.now();
     }
-	
+
     //상품 좋아요 클릭해서 횟수 추가하기
-    private int likes;//좋아요를 받는 방법은 여러 방법이 있음.
-    //1. 사용자 관계없이 카운트만 올라가게 하기
-    
-    //2. ManyToOne이나
-    
-    
-    
-    
+    private int likes; 
+    //좋아요를 받는 방법은 여러 방법이 있음
+    // 1. 사용자 관계없이 카운트만 올라가게하기
+
+    // 2. ManytoOne이나 OneToMany 이용해서 서로 카운트 주기
 }

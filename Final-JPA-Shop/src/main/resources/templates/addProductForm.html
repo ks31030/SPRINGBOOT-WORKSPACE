@@ -6,7 +6,7 @@
 		<link rel="stylesheet" href="/css/styles.css" th:href="@{/css/styles.css}" />
 	</head>
 	<body>
-		<h1>상품 이미지 및 상품 내용을 업로드</h1>
+		<h1>상품 이미지 및 상품 내용 업로드</h1>
 		<form th:action="@{/product/new}" method="post" enctype="multipart/form-data">
 			<label>상품 판매 / 품절</label><br>
 			<input type="radio" name="isSoldout" id="isSoldout" value="0">판매중<br>
@@ -22,12 +22,13 @@
 			<input type="text" id="price" name="price" placeholder="상품가격을 입력하세요."> 
 			<br>
 			<label>상품 재고 : </label>
-			<input type="text" id="stock" name="stock" placeholder="상품재고을 입력하세요."> 
+			<input type="text" id="stock" name="stock" placeholder="상품재고를 입력하세요."> 
 			<br>
-			<label>상품 이미지 업로드 : </label>
+			<label>이미지 : </label>
 			<input type="file" id="imgFile" name="imgFile"> 
 			<br>
 			<button type="submit">상품등록</button>
-		</form>	
+		</form>
+		<a th:href="@{/product/list}">돌아가기</a>
 	</body>
 </html>

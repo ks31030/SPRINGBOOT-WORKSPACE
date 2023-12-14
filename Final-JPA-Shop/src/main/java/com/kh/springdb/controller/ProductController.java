@@ -2,7 +2,7 @@ package com.kh.springdb.controller;
 
 import java.io.IOException;
 
-import java.util.List;
+import java.util.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,10 +16,13 @@ import com.kh.springdb.service.CommentService;
 import com.kh.springdb.service.ProductService;
 
 import lombok.RequiredArgsConstructor;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 @Controller
 @RequiredArgsConstructor
 public class ProductController {
+	@Autowired
 	private final ProductService productService;
 	
 	@GetMapping("/")
@@ -28,7 +31,7 @@ public class ProductController {
 	}
 	
 	//페이지네이션 체크를 하기 위한 GetMapping 추가
-	@GetMapping("/list")
+	@GetMapping("/product/list")
 	public String pageList(Model model,
 			@RequestParam(value="page",defaultValue="0" ) int page) {
 	// @RequestParam(value="page",defaultValue="0" )
@@ -41,16 +44,6 @@ public class ProductController {
 		Page<Product> paging = productService.getList(page);
 		model.addAttribute("paging", paging);
 		return "product_List";
-	}
-
-	
-	//상품 전체 목록 페이지로 이동하기 위한 GetMapping
-	@GetMapping("/product/list")
-	public String productList(Model model) {
-		//아이템을 추가한 서비스를 불러와서 모델에 넣어주기
-		List<Product> products = productService.allProductView();
-		model.addAttribute("products", products);
-		return "productList";
 	}
 	
 	//상품 등록 페이지 - 조회
@@ -82,17 +75,35 @@ public class ProductController {
 		return "product_detail";
 	}
 	
-	private CommentService commentService;
+	@Autowired
+	private final CommentService commentService;
+	
 	//댓글 작성하기 위한 postMapping
 	@PostMapping("/addComment")
-	public String addComment(@RequestParam(value="productId") int productId, @RequestParam(value="commentContent") String commentContent) {
+	public String addComment(@RequestParam int productId, @RequestParam String commentContent) {
 		commentService.addComment(productId, commentContent);
 		return "redirect:/product/detail/" + productId;
 	}
 	
-	//like한 내용 받아줄 수 있게 PostMapping
-//	public String likeProduct(/*추가로 변수값 넣어줄 것*/) {
-//		productService.likeProduct(/*추후 아이디값이나 like를 넣어줄 수 있는 변수값 예정*/);
+	//댓글 삭제
+	@GetMapping("/deleteComment/{productId}")
+	public String deleteComment(@PathVariable Long productId) {
+		commentService.deleteComment(productId);
+		return "redirect:/product/list";
+	}
+	
+	//상품정보 수정하기
+//		@GetMapping("/product/edit/{id}")
+//		public String editProduct(@PathVariable("id") int id, Model model) {
+//			Optional<Product> product = productService.getProductById(id);
+//			product.ifPresent(value -> model.addAttribute("product", value));
+//			return "prodctForm";
+//		}
+	
+	//like 한 내용 받아줄 수 있게 PostMapping
+//	public String likeProduct(/*추가로 나중에 변수 값 넣어줄 것*/) {
+//		productService.likeProduct(/*추후 아이디 값이나 like를 넣어줄 수 있는 변수값 넣어줄 예정*/);
 //		return "redirect:/list";
 //	}
+	
 }

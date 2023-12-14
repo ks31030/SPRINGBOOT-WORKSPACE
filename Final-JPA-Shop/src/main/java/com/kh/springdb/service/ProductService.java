@@ -25,7 +25,7 @@ public class ProductService {
 	public List<Product> allProductView(){
 		return productRepository.findAll();
 	}
-
+	
 	//pagination add
 	public Page<Product> getList(int page){
 							// page 페이지 값,  1= 페이지당 보여줄 목록 개수
@@ -58,12 +58,13 @@ public class ProductService {
 		return productRepository.findProductById(id);
 	}
 	
-	//제품에 좋아요를 받을 수 있도록 서비스 만들어 줌.
-	public void likesProduct(int productId) {
-		Product product = productRepository.findById(productId).orElse(null); 
-		if(product!=null) {
-			product.setLikes(product.getLikes()+1);
-			productRepository.save(product);
-		}
+	//제품에 좋아요를 받을 수 있도록 서비스 만들어줌
+	public void likeProduct(int productId) {
+	    Product product = productRepository.findById(productId).orElse(null);
+	    if (product != null) {
+	        product.setLikes(product.getLikes() + 1);
+	        productRepository.save(product);
+	    }
 	}
+
 }

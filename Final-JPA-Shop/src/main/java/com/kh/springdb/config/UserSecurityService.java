@@ -35,22 +35,24 @@ public class UserSecurityService implements UserDetailsService{
 	//userDetails를 사용해서 로그인할 수 있는 유저가 있는지 확인할 것
 	//사용자명을 기준으로 사용자 정보를 가져오게 할 것
 
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException{
-		Optional<SiteUser> _siteUser = userRepository.findByusername(username);
-		if(_siteUser.isEmpty()) {
-			throw new UsernameNotFoundException("사용자를 찾을 수 없습니다.");
-		}
-		SiteUser user = _siteUser.get();
-		List<GrantedAuthority> authorities = new ArrayList<>();
-		//만약에 admin user로 로그인된다면 로그인 분류를 role에 따라 추가로 작성
-		if ("admin".equals(username)) {
-			authorities.add(new SimpleGrantedAuthority(UserRole.ADMIN.getValue()));
-		} else {
-			authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
-		}
-		
-		  return new User(user.getUsername(), user.getPassword(), authorities);
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+	    Optional<SiteUser> _siteUser = userRepository.findByusername(username);
+	    if (_siteUser.isEmpty()) {
+	        throw new UsernameNotFoundException("사용자를 찾을 수 없습니다.");
+	    }
+	    SiteUser user = _siteUser.get();
+	    List<GrantedAuthority> authorities = new ArrayList<>();
+	    
+	    // Use UserRole enumeration to check the role
+	    if (UserRole.ADMIN.equals(user.getIsRole())) {
+	        authorities.add(new SimpleGrantedAuthority(UserRole.ADMIN.getValue()));
+	    } else {
+	        authorities.add(new SimpleGrantedAuthority(UserRole.USER.getValue()));
+	    }
+
+	    return new User(user.getUsername(), user.getPassword(), authorities);
 	}
+
 }
 
 //UserDetails = 스프링 시큐리티가 사용자의 인증과 권한 부여를 처리하는데
