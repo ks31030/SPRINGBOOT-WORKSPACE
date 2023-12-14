@@ -41,7 +41,7 @@ public class Product {
 	//@OneToMany(mappedBy="products", cascade=CascadeType.ALL)
 	//댓글 작성을 위한 Comment
 	@OneToMany(mappedBy="product", cascade=CascadeType.ALL)
-	private List<Comments> comments;
+	private List<Comment> comments;
 	
 	//상품 이미지를 위한 필드 설정
 	
