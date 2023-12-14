@@ -4148,3 +4148,12 @@ java.lang.NullPointerException
 	at org.springsource.ide.eclipse.commons.livexp.core.LiveVariable.setValue(LiveVariable.java:46)
 	at org.springframework.ide.eclipse.boot.dash.util.AbstractPollingAppReadyStateMonitor$1.run(AbstractPollingAppReadyStateMonitor.java:51)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-14 17:23:35.266
+!MESSAGE Classpath changed for project: Final-JPA-Shop
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-14 17:37:20.867
+!MESSAGE Classpath changed for project: Final-JPA-Shop
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-12-14 17:39:50.054
+!MESSAGE Classpath changed for project: Final-JPA-Shop
