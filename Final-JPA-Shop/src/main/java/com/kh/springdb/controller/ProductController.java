@@ -93,12 +93,12 @@ public class ProductController {
 	}
 	
 	//상품정보 수정하기
-//		@GetMapping("/product/edit/{id}")
-//		public String editProduct(@PathVariable("id") int id, Model model) {
-//			Optional<Product> product = productService.getProductById(id);
-//			product.ifPresent(value -> model.addAttribute("product", value));
-//			return "prodctForm";
-//		}
+//	@GetMapping("/product/edit/{id}")
+//	public String editProduct(@PathVariable("id") int id, Model model) {
+//		Optional<Product> product = productService.getProductById(id);
+//		product.ifPresent(value -> model.addAttribute("product", value));
+//		return "prodctForm";
+//	}
 	
 	//like 한 내용 받아줄 수 있게 PostMapping
 //	public String likeProduct(/*추가로 나중에 변수 값 넣어줄 것*/) {

@@ -88,7 +88,7 @@
 					            	<span>이전</span>
 		                		</a>
 	            			</li>
-				 			<li th:each="page: ${#numbers.sequence(0, paging.totalPages-1)}" 
+				 			<li th:each="page: ${#numbers.sequence(1, paging.totalPages)}" 
 				                th:if="${page >= paging.number-3 and page <= paging.number+3}"
 				                th:classappend="${page == paging.number} ? 'active'" 
 				            >
