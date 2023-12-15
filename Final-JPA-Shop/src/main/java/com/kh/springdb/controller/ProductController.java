@@ -1,8 +1,10 @@
 package com.kh.springdb.controller;
 
 import java.io.IOException;
+import java.util.Optional;
 
-import java.util.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,9 +18,6 @@ import com.kh.springdb.service.CommentService;
 import com.kh.springdb.service.ProductService;
 
 import lombok.RequiredArgsConstructor;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 @Controller
 @RequiredArgsConstructor
 public class ProductController {
@@ -68,11 +67,25 @@ public class ProductController {
 		//하나의 아이디 값을 가지고 와서 지정된 제품을 모든 내용을 보여줄 수 있도록 함
 		Product product = productService.getProductById(id); 
 		//model.addAttribute("product", product) 는
-		//      "product" templates 밑에서 tymeleaf로 불러올 변수명을 product로 지정
+		//      "product" templates 밑에서 thymeleaf로 불러올 변수명을 product로 지정
 		//	Product product	만들어준 필드명을 가지고와서 service로 불러온 내용을 	
 		// "product" 안에 저장해준다는 의미
 		model.addAttribute("product", product);
 		return "product_detail";
+	}
+	//상품 수정하기
+//	@GetMapping("/product/edit/{id}")
+//	public String productEdit(@PathVariable int id, Model model) {
+//		Optional<Product> product = productService.editProductById(id);
+//		product.ifPresent(value -> model.addAttribute("product", value));
+//		return "addProductForm";
+//	}
+	
+	//상품 삭제하기
+	@GetMapping("/product/delete/{id}")
+	public String productDelete(@PathVariable int id) {
+		productService.deleteProductById(id);
+		return "redirect:/product/list";
 	}
 	
 	@Autowired
@@ -92,7 +105,7 @@ public class ProductController {
 		return "redirect:/product/list";
 	}
 	
-	//상품정보 수정하기
+	//상품정보 수정하기(with 강사님)
 //	@GetMapping("/product/edit/{id}")
 //	public String editProduct(@PathVariable("id") int id, Model model) {
 //		Optional<Product> product = productService.getProductById(id);

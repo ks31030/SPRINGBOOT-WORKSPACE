@@ -50,7 +50,6 @@ public class BoardController {
 		return "redirect:/boards";
 	}
 	
-	//수정하기
 	@GetMapping("/update/{boardId}")
 	public String getUpdateBoard(@PathVariable Long boardId, Model model) {
 		Optional<Board> board = boardService.getBoardById(boardId);

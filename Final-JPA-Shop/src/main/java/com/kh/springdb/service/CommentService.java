@@ -17,7 +17,7 @@ public class CommentService {
 	@Autowired
 	private ProductRepository productRepository;
 	
-	//댓글 추가 메서드 작성
+	//댓글 추가 메서드
 	public Comment addComment(int productId, String content) {
 		Product product = productRepository.findById(productId).orElse(null);
 		//만약 상품이 존재하지 않을 경우 댓글 또한 존재하지 않으므로, 댓글이 존재할 수 없음을 예외처리
@@ -31,8 +31,12 @@ public class CommentService {
 		return commentRepository.save(comment);
 	}
 	
-	//댓글 삭제 메서드 작성
+	//댓글 수정 메서드
+	
+	
+	//댓글 삭제 메서드
 	public void deleteComment(Long productId) {
 		commentRepository.deleteById(productId);
 	}
+
 }
