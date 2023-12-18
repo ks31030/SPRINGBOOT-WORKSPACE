@@ -30,7 +30,6 @@ public class CommentService {
 		comment.setContent(content);
 		return commentRepository.save(comment);
 	}
-	
 	//댓글 수정 메서드
 	
 	
@@ -38,5 +37,4 @@ public class CommentService {
 	public void deleteComment(Long productId) {
 		commentRepository.deleteById(productId);
 	}
-
 }

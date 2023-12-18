@@ -1,7 +1,6 @@
 package com.kh.springdb.controller;
 
 import java.io.IOException;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.kh.springdb.model.Comment;
 import com.kh.springdb.model.Product;
 import com.kh.springdb.service.CommentService;
 import com.kh.springdb.service.ProductService;
@@ -56,7 +56,7 @@ public class ProductController {
 	@PostMapping("/product/new")
 	public String productSave(Product product, MultipartFile imgFile) throws IllegalStateException, IOException {	
 		productService.saveProduct(product, imgFile);
-		return "redirect:/"; 
+		return "redirect:/product/list"; 
 		//상품 리스트 페이지로 변경해서 상품 등록 후 이동하는 경로를 바꿔줄 수 있음
 	}
 	
@@ -73,13 +73,6 @@ public class ProductController {
 		model.addAttribute("product", product);
 		return "product_detail";
 	}
-	//상품 수정하기
-//	@GetMapping("/product/edit/{id}")
-//	public String productEdit(@PathVariable int id, Model model) {
-//		Optional<Product> product = productService.editProductById(id);
-//		product.ifPresent(value -> model.addAttribute("product", value));
-//		return "addProductForm";
-//	}
 	
 	//상품 삭제하기
 	@GetMapping("/product/delete/{id}")
@@ -88,10 +81,20 @@ public class ProductController {
 		return "redirect:/product/list";
 	}
 	
+	//상품 수정하기
+	@GetMapping("/product/update/{id}")
+	public String productUpdate(@PathVariable int id, Model model) {
+		//상세보기를 검색할 조건
+		Product product = productService.getProductById(id);
+		//하나의 아이디 값을 가지고 와서 그 아이디가 속해있는 데이터를 product안에 저장한다는 의미
+		model.addAttribute("product",product);
+		return "updateProductForm";
+	}
+	
 	@Autowired
 	private final CommentService commentService;
 	
-	//댓글 작성하기 위한 postMapping
+	//댓글 작성
 	@PostMapping("/addComment")
 	public String addComment(@RequestParam int productId, @RequestParam String commentContent) {
 		commentService.addComment(productId, commentContent);
@@ -104,14 +107,6 @@ public class ProductController {
 		commentService.deleteComment(productId);
 		return "redirect:/product/list";
 	}
-	
-	//상품정보 수정하기(with 강사님)
-//	@GetMapping("/product/edit/{id}")
-//	public String editProduct(@PathVariable("id") int id, Model model) {
-//		Optional<Product> product = productService.getProductById(id);
-//		product.ifPresent(value -> model.addAttribute("product", value));
-//		return "prodctForm";
-//	}
 	
 	//like 한 내용 받아줄 수 있게 PostMapping
 //	public String likeProduct(/*추가로 나중에 변수 값 넣어줄 것*/) {

@@ -4,7 +4,6 @@ package com.kh.springdb.service;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -54,6 +53,11 @@ public class ProductService {
 		productRepository.save(product);
 	}
 	
+	//상품 상세페이지나 수정하기 위해 아이디를 가져와서 상품을 보여주거나 수정할 수 있게 가져오는 메서드
+	public Product getProductById(int id) {
+		return productRepository.findProductById(id);
+	}
+	
 	//제품에 좋아요를 받을 수 있도록 서비스 만들어줌
 	public void likeProduct(int productId) {
 	    Product product = productRepository.findById(productId).orElse(null);
@@ -63,18 +67,9 @@ public class ProductService {
 	    }
 	}
 	
-	//상품 상세페이지나 수정하기 위해 아이디를 가져와서 상품을 보여주거나 수정할 수 있게 가져오는 메서드
-	public Product getProductById(int id) {
-		return productRepository.findProductById(id);
-	}
-	
-	//상품 수정 위해서 만든 메서드
-//	public Optional<Product> editProductById(int id) {
-//		return productRepository.updateProductById(id);
-//	}
-
+	//상품 삭제를 위한 서비스 생성
 	public void deleteProductById(int id) {
 		productRepository.deleteById(id);
 	}
-
+	
 }
