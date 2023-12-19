@@ -17,7 +17,6 @@
     <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
     <fullyQualifiedTypeName name="com.kh.springdb.vo.Product"/>
     <fullyQualifiedTypeName name="org.apache.ibatis.annotations.Param"/>
-    <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
     <fullyQualifiedTypeName name="org.springframework.boot.autoconfigure.kafka.KafkaProperties.Admin"/>
     <fullyQualifiedTypeName name="org.apache.catalina.realm.JNDIRealm.User"/>
     <fullyQualifiedTypeName name="com.kh.springdb.model.vo.Item"/>
@@ -43,7 +42,6 @@
     <fullyQualifiedTypeName name="com.kh.user.dao.UserDAO"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.NotEmpty"/>
     <fullyQualifiedTypeName name="jakarta.validation.constraints.Email"/>
-    <fullyQualifiedTypeName name="java.util.Optional"/>
     <fullyQualifiedTypeName name="org.apache.tomcat.util.net.openssl.ciphers.Authentication"/>
     <fullyQualifiedTypeName name="org.springframework.security.core.Authentication"/>
     <fullyQualifiedTypeName name="org.springframework.security.web.util.matcher.AntPathRequestMatcher"/>
@@ -56,4 +54,7 @@
     <fullyQualifiedTypeName name="org.springframework.data.domain.Pageable"/>
     <fullyQualifiedTypeName name="org.springframework.data.domain.Page"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
+    <fullyQualifiedTypeName name="com.kh.springdb.model.Comment"/>
+    <fullyQualifiedTypeName name="java.util.Optional"/>
+    <fullyQualifiedTypeName name="jakarta.persistence.Table"/>
 </qualifiedTypeNameHistroy>
